@@ -1,0 +1,47 @@
+[
+  {
+      "id":1,
+      "name":"abc",
+      "email":"abc@gmail.com",
+      "role": "abc",
+      "empid": "001",
+      "doj": "00/00/0000",
+      "dob": "00/00/0000"
+  },
+  {
+    "id":2,
+    "name":"abc",
+    "email":"abc@gmail.com",
+    "role": "abc",
+    "empid": "002",
+    "doj": "00/00/0000",
+    "dob": "00/00/0000"
+  },
+  {
+    "id":3,
+    "name":"abc",
+    "email":"abc@gmail.com",
+    "role": "abc",
+    "empid": "003",
+    "doj": "00/00/0000",
+    "dob": "00/00/0000"
+},
+{
+  "id":4,
+  "name":"abc",
+  "email":"abc@gmail.com",
+  "role": "abc",
+  "empid": "004",
+  "doj": "00/00/0000",
+  "dob": "00/00/0000"
+},
+{
+  "id":5,
+  "name":"abc",
+  "email":"abc@gmail.com",
+  "role": "abc",
+  "empid": "005",
+  "doj": "00/00/0000",
+  "dob": "00/00/0000"
+}
+]
