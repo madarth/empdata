@@ -125,7 +125,7 @@ class Login extends Component {
       <div className="container">
         <div className="card shadow">
           <div className="card-header">
-            <h4 className="text-center">Madarth Login welcome</h4>
+            <h4 className="text-center">Madarth Login</h4>
           </div>
 
           <div className="card-body">
