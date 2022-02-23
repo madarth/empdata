@@ -10,8 +10,9 @@ const Record = (props) => (
    <td>{props.record.Emp_Date_of_joining}</td>
    <td>{props.record.Emp_Date_of_Brith}</td>
    {/* <td>{props.record.Emp_Password}</td> */}
+   <td><Link className="btn btn-success" to={`/updatebutton/${props.record._id}`}>Edit</Link></td>
    <td>
-   <Link className="btn btn-success" to={`/updatebutton/${props.record._id}`}>Edit</Link> &nbsp;| &nbsp;
+   {/* <Link className="btn btn-success" to={`/updatebutton/${props.record._id}`}>Edit</Link> &nbsp;| &nbsp; */}
      {/* <Link className="btn btn-success" to={`/edit/${props.record._id}`}>Edit</Link> &nbsp;| &nbsp; */}
      <button className="btn btn-danger"
        onClick={() => {
@@ -83,11 +84,13 @@ export default function RecordList() {
          <tr>
 		   {/* <th>Id</th> */}
            <th>Name</th>
-           <th>Email-Id</th>
-           <th>Emp_Id</th>
-           <th>Emp_Role</th>
-		   <th>Date_of_joining</th>
-		   <th>Date_of_Brith</th>
+           <th>Email Id</th>
+           <th>Emp Id</th>
+           <th>Emp Role</th>
+		   <th>Date of joining</th>
+		   <th>Date of Brith</th>
+       <th>Edit</th>
+       <th>Delete</th>
 		   {/* <th>Password</th> */}
          </tr>
        </thead>
