@@ -12,6 +12,7 @@ import Changepassword from "./Changepassword";
 // import validates from './validates';
 //import Updatebutton from "../Components/Updatebutton"
 import Updatebutton from '../Components/Updatebutton';
+import Editor from './Editor';
 // import Edit from '../Components/Edit';
 // import Server from "../Components/Server";
 // import App from '../App';
@@ -34,6 +35,7 @@ export default function RouterPage() {
                 <Route path="/changepassword" element={<Changepassword />} />
                 {/* <Route path="/validates" element={<validates />} /> */}
                 <Route path="/stocks" element={<Stocks />} />
+                <Route path="/editor" element={<Editor />} />
                 <Route path="/updatebutton/:id" element={<Updatebutton />} />
                 {/* <Route path="/" element={< />} /> */}
 
