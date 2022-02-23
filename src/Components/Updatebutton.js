@@ -13,6 +13,7 @@ export default function Edit() {
   Emp_Date_of_joining:"",
   Emp_Date_of_Brith:"",
   Emp_Password:"",
+  Emp_confirmpassword:"",
    records: [],
  });
  const params = useParams();
@@ -63,6 +64,7 @@ export default function Edit() {
      doj:form.Emp_Date_of_joining,
      dob:form.Emp_Date_of_Brith,
      password:form.Emp_Password,
+     confirmpassword:form.Emp_confirmpassword,
    };
  
    // This will send a post request to update the data in the database.
@@ -96,7 +98,7 @@ export default function Edit() {
            id="name"
            value={form.Emp_Name}
            onChange={(e) => updateForm({ Emp_Name: e.target.value })}
-         />
+           required/>
        </div>
        <div className="form-group">
          <label htmlFor="name">Email </label>
@@ -106,7 +108,7 @@ export default function Edit() {
            id="name"
            value={form.Emp_Email}
            onChange={(e) => updateForm({ Emp_Email: e.target.value })}
-         />
+           required/>
        </div>
        <div className="form-group">
          <label htmlFor="name">Your-Id </label>
@@ -116,17 +118,28 @@ export default function Edit() {
            id="name"
            value={form.Emp_Id}
            onChange={(e) => updateForm({ Emp_Id: e.target.value })}
-         />
+           required/>
        </div>
        <div className="form-group">
          <label htmlFor="name">Your-Role </label>
-         <input
+         <select class="form-select" aria-label="Default select example" className="form-control"
+           id="name"
+           value={form.Emp_Role}
+           onChange={(e) => updateForm({ Emp_Role: e.target.value })}
+           required>
+<option selected>Open this select menu</option>
+  <option value="Admin">Admin</option>
+  <option value="Content Writer">Content Writer</option>
+  <option value="Graphic Designer">Graphic Designer</option>
+  <option value="UI Developer">UI Developer</option>
+</select>
+         {/* <input
            type="text"
            className="form-control"
            id="name"
            value={form.Emp_Role}
            onChange={(e) => updateForm({ Emp_Role: e.target.value })}
-         />
+           required/> */}
        </div>
        <div className="form-group">
          <label htmlFor="name">Date of Joining </label>
@@ -136,7 +149,7 @@ export default function Edit() {
            id="name"
            value={form.Emp_Date_of_joining}
            onChange={(e) => updateForm({ Emp_Date_of_joining: e.target.value })}
-         />
+           required/>
        </div>
        <div className="form-group">
          <label htmlFor="name">Date of Birth </label>
@@ -146,7 +159,7 @@ export default function Edit() {
            id="name"
            value={form.Emp_Date_of_Brith}
            onChange={(e) => updateForm({ Emp_Date_of_Brith: e.target.value })}
-         />
+           required/>
        </div>
        <div className="form-group">
          <label htmlFor="name">Password </label>
@@ -156,18 +169,18 @@ export default function Edit() {
            id="name"
            value={form.Emp_Password}
            onChange={(e) => updateForm({ Emp_Password: e.target.value })}
-         />
+           required/>
        </div>
-       <div className="form-group">
+       {/* <div className="form-group">
          <label htmlFor="name">Confirm Password </label>
          <input
            type="password"
            className="form-control"
            id="name"
-           value={form.confirmpassword}
-           onChange={(e) => updateForm({ confirmpassword: e.target.value })}
-         />
-       </div>
+           value={form.Emp_confirmpassword}
+           onChange={(e) => updateForm({ Emp_confirmpassword: e.target.value })}
+           required/>
+       </div> */}
 
 
        <br /> 

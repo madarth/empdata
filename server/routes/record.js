@@ -39,7 +39,7 @@ recordRoutes.route("/record/:id").get(function (req, res) {
 // This section will help you create a new record.
 recordRoutes.route("/record/add").post(function (req, response) {
   // console.log('abcde');
-    console.log('success');
+    // console.log('success');
   let db_connect = dbo.getDb();
   let myobj = {
     Emp_Name: req.body.name.value,
@@ -49,8 +49,9 @@ recordRoutes.route("/record/add").post(function (req, response) {
     Emp_Date_of_joining: req.body.doj.value,
     Emp_Date_of_Brith: req.body.dob.value,
     Emp_Password: req.body.password.value,
+    // Emp_confirmpassword: req.body.confirmpassword.value,
   };
-  console.log(myobj);
+  // console.log(myobj);
   db_connect.collection("records").insertOne(myobj, function (err, res) {
     if (err) throw err;
     console.log("1 document instered");
@@ -63,7 +64,7 @@ recordRoutes.route("/record/add").post(function (req, response) {
 recordRoutes.route("/update/:id").post(function (req, response) {
   let db_connect = dbo.getDb();
   let myquery = { _id: ObjectId( req.params.id )};
-  console.log('update');
+  // console.log('update');
   let newvalues = {
     $set: {
     Emp_Name: req.body.name,
@@ -73,9 +74,10 @@ recordRoutes.route("/update/:id").post(function (req, response) {
     Emp_Date_of_joining: req.body.doj,
     Emp_Date_of_Brith: req.body.dob,
     Emp_Password: req.body.password,
+    // Emp_confirmpassword: req.body.confirmpassword,
     },
   };
-  console.log(newvalues);
+  // console.log(newvalues);
   db_connect
     .collection("records")
     .updateOne(myquery, newvalues, function (err, res) {

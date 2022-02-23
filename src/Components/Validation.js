@@ -81,33 +81,15 @@ class ValidateFields {
     }
     return false;
   }
-
-
-  // validateConfirmpassword(confirmpassword) {
-  //   if (validator.isEmpty(confirmpassword)) {
-  //     return 'Password is required';
-  //   } else if (!validator.isLength(confirmpassword, { min: 8 })) {
-  //     return 'Password should be minimum 8 characters';
-  //   }
-  //   return false;
-  // }
   
-  validateConfirmpassword(confirmpassword, password) {
-    //console.log(password);
+  validateConfirmpassword(confirmpassword) {
     if (validator.isEmpty(confirmpassword)) {
       return 'Password is required';
-    }else if(confirmpassword==password){
-      return 'Doest not match the password';
-    }
-    else if (!validator.isLength(confirmpassword, { min: 8 })) {
+    } else if (!validator.isLength(confirmpassword, { min: 8 })) {
       return 'Password should be minimum 8 characters';
     }
     return false;
-  }
-
-  validateFields(validatePassword, validateConfirmpassword){
-    console.log(validatePassword + ' ' + validateConfirmpassword);
-  }
+  }  
 }
 
 

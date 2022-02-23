@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { validateFields } from './Validation';
 // import { Link } from 'react-router-dom';
 import classnames from 'classnames';
-import axios from 'axios';
+// import axios from 'axios';
 
 
 const initialState = {
@@ -41,11 +41,11 @@ const initialState = {
     validateOnChange: false,
     error: ''
   },
-  confirmpassword: {
-    value: '',
-    validateOnChange: false,
-    error: ''
-  },
+  // confirmpassword: {
+  //   value: '',
+  //   validateOnChange: false,
+  //   error: ''
+  // },
   submitCalled: false,
   allFieldsValidated: false
 };
@@ -102,6 +102,8 @@ class Registerform extends Component {
    */
   async handleSubmit(evt) {
     evt.preventDefault();
+
+    //console.log(password +' '+ confirmpassword);
     // const newPerson = { ...this.state.validateName };
  
     // await fetch("http://localhost:5000/record/add", {
@@ -128,8 +130,9 @@ class Registerform extends Component {
     const datejoiningError = validateFields.validateDatejoining(datejoining.value);
     const datebirthError = validateFields.validateDatebirth(datebirth.value);
     const passwordError = validateFields.validatePassword(password.value);
-    const confirmpasswordError = validateFields.validateConfirmpassword(confirmpassword.value);
-    if ([nameError, emailError, youridError, yourroleError, datebirthError, datejoiningError, passwordError, confirmpasswordError].every(e => e === false)) {
+    // const confirmpasswordError = validateFields.validateConfirmpassword(confirmpassword.value);
+      
+    if ([nameError, emailError, youridError, yourroleError, datebirthError, datejoiningError, passwordError].every(e => e === false)) {
       // no errors submit the form
       console.log('success');
       
@@ -146,7 +149,8 @@ class Registerform extends Component {
         "yourrole": this.state.yourrole,
         "doj": this.state.datejoining,
         "dob": this.state.datebirth,
-        "password": this.state.password
+        "password": this.state.password,
+        // "confirmpassword":this.state.confirmpassword,
         // limit: 10
     };
     const requestMetadata = {
@@ -177,7 +181,7 @@ class Registerform extends Component {
           error: emailError
         },
         yourid: {
-          ...state.name,
+          ...state.yourid,
           validateOnChange: true,
           error: youridError
         },
@@ -187,12 +191,12 @@ class Registerform extends Component {
           error: yourroleError
         },
         datejoining: {
-          ...state.yourrole,
+          ...state.datejoining,
           validateOnChange: true,
           error: datejoiningError
         },
         datebirth: {
-          ...state.yourrole,
+          ...state.datebirth,
           validateOnChange: true,
           error: datebirthError
         },
@@ -201,11 +205,11 @@ class Registerform extends Component {
           validateOnChange: true,
           error: passwordError
         },
-        confirmpassword: {
-          ...state.password,
-          validateOnChange: true,
-          error: confirmpasswordError
-        }
+        // confirmpassword: {
+        //   ...state.confirmpassword,
+        //   validateOnChange: true,
+        //   error: confirmpasswordError
+        // }
       }));
     }
   }
@@ -217,7 +221,7 @@ class Registerform extends Component {
   }
 
   render() {
-    const { name, yourid, yourrole, datejoining, datebirth, confirmpassword, email, password, allFieldsValidated } = this.state;
+    const { name, yourid, yourrole, datejoining, datebirth, email, password, allFieldsValidated } = this.state;
     return (
       <div className="container">
         <div className="card shadow">
@@ -307,7 +311,27 @@ class Registerform extends Component {
               {/* yourrole field */}
               <div className="form-group">
                 <label>Your Role</label>
-                <input
+                <select class="form-select" aria-label="Default select example" name="yourrole"
+                  value={yourrole.value}
+                  placeholder="Enter your Your Role"
+                  className={classnames(
+                    'form-control',
+                    { 'is-valid': yourrole.error === false },
+                    { 'is-invalid': yourrole.error }
+                  )}
+                  onChange={evt =>
+                    this.handleChange(validateFields.validateYourrole, evt)
+                  }
+                  onBlur={evt =>
+                    this.handleBlur(validateFields.validateYourrole, evt)
+                  }>
+  <option selected>Open this select menu</option>
+  <option value="Admin">Admin</option>
+  <option value="Content Writer">Content Writer</option>
+  <option value="Graphic Designer">Graphic Designer</option>
+  <option value="UI Developer">UI Developer</option>
+</select>
+                {/* <input
                   type="text"
                   name="yourrole"
                   value={yourrole.value}
@@ -323,7 +347,7 @@ class Registerform extends Component {
                   onBlur={evt =>
                     this.handleBlur(validateFields.validateYourrole, evt)
                   }
-                />
+                /> */}
                 <div className="invalid-feedback">{yourrole.error}</div>
               </div>
 
@@ -390,15 +414,22 @@ class Registerform extends Component {
                   onChange={evt =>
                     this.handleChange(validateFields.validatePassword, evt)
                   }
-                  onBlur={evt =>
+                  onBlur={evt => 
                     this.handleBlur(validateFields.validatePassword, evt)
                   }
                 />
                 <div className="invalid-feedback">{password.error}</div>
+                <button
+                type="submit"
+                className="btn btn-primary rowbtn"
+                onMouseDown={() => this.setState({ submitCalled: true })}
+              >
+                Sign Up
+              </button> 
               </div>
               
               {/* Confirm password field */}
-              <div className="form-group">
+              {/* <div className="form-group">
                 <label>Confirm Password</label>
                 <input
                   type="password"
@@ -413,19 +444,14 @@ class Registerform extends Component {
                   onChange={evt =>
                     this.handleChange(validateFields.validateConfirmpassword, evt)
                   }
+                  // onChange={checkPasswordMatch()}
                   onBlur={evt =>
                     this.handleBlur(validateFields.validateConfirmpassword, evt)
                   }
                 />
                 <div className="invalid-feedback">{confirmpassword.error}</div>
-                <button
-                type="submit"
-                className="btn btn-primary rowbtn"
-                onMouseDown={() => this.setState({ submitCalled: true })}
-              >
-                Sign Up
-              </button> 
-              </div>
+                
+              </div> */}
               
             </form>
           </div>
