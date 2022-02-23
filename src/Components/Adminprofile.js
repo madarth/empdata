@@ -9,7 +9,7 @@ class Adminprofile extends  Component{
               <React.Fragment>
                   <div class="card text-center">
   <div class="card-header">
-    My Profiles
+    My Profile
   </div>
   <div class="card-body">
   <img class="Profile" src='assets/images/img_avatar.png'/>
