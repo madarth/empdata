@@ -14,7 +14,7 @@ class Projectproposal extends  Component{
                   <h3 className='secone-form'>Templates</h3> 
                   <Container className='container-proposalproject'>
   <Row>
-    <Col sm><Link to="/"><img class="template" src='assets/images/snapsix.png'/></Link>
+    <Col sm><Link to="/editor" onClick="reload"><img class="template" src='assets/images/snapsix.png'/></Link>
     <p className='proposal-content'>Blank</p></Col>
     <Col sm><Link to="/"><img class="template" src='assets/images/snapfive.png'/></Link>
     <p className='proposal-content'>Project proposal</p></Col>
